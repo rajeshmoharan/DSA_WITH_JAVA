@@ -40,4 +40,21 @@ public class SingleDimensionalArrayInsertion {
             System.out.println("Invalid location want to access");
         }
     }
+
+    /**
+     * this method will responsible for
+     * traverse an array and print all the element
+     * @return void
+     */
+    public void traverseArray(){
+        try{
+
+            for(int i=0; i<arr.length; i++){
+                System.out.println(arr[i]+" ");
+            }
+
+        }catch (ArrayStoreException e){
+            System.out.println("Array is not found!");
+        }
+    }
 }
