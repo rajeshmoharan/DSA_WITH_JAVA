@@ -57,4 +57,20 @@ public class SingleDimensionalArrayInsertion {
             System.out.println("Array is not found!");
         }
     }
+
+    /**
+     * This method is responsbility for take a valueTobeSearch
+     * and it start a loop and find if present then give index and
+     * return
+     * @param valueToBeSearch
+     */
+    public void searchInAnArray(int valueToBeSearch){
+        for(int i=0; i<arr.length; i++){
+            if(arr[i] == valueToBeSearch){
+                System.out.println("Value found in the index :"+i);
+                return;
+            }
+        }
+        System.out.println("Value not found in the array");
+    }
 }
