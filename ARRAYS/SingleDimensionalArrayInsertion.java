@@ -73,4 +73,19 @@ public class SingleDimensionalArrayInsertion {
         }
         System.out.println("Value not found in the array");
     }
+
+    /**
+     * this method is responsible for take the index number and
+     * put he Integer of minValue
+     * the time complexity is O(1) constant
+     * @param valueDeleteByIndex
+     */
+    public void deleteValueInAnArray(int valueDeleteByIndex){
+        try {
+            arr[valueDeleteByIndex] = Integer.MIN_VALUE;
+            System.out.println("Sucessfully value deleted");
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Index not found !");
+        }
+    }
 }
