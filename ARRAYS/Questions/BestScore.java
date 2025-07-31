@@ -15,18 +15,13 @@ public class BestScore {
         int max = Integer.MIN_VALUE;
         int min = max;
 
-        int value[] = new int[2];
-
         for(int i=0; i<arr.length; i++){
             if(arr[i] > max){
                 min = max;
                 max = arr[i];
             }
         }
-        value[0] = max;
-        value[1] = min;
-
-        return value;
+        return new int[]{max, min};
     }
 
     /**
