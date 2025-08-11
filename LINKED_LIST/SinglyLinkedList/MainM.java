@@ -5,7 +5,12 @@ public class MainM {
 
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.createSinglyLinkedList(10);
-        System.out.println(sll.head.value);
+
+        sll.insertInSinglyLinkedList(20,1);
+        sll.insertInSinglyLinkedList(40,2);
+
+        sll.traverseSinglyLinkedList();
+
 
     }
 }

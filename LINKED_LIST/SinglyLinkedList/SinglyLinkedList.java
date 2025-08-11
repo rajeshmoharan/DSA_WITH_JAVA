@@ -22,4 +22,52 @@ public class SinglyLinkedList {
         size = 1;
         return head;
     }
+
+    /**
+     * insertion  of the singlyLinkedList
+     *
+     */
+    public void insertInSinglyLinkedList(int nodeValue,int location){
+        Node newNode = new Node();
+        newNode.value = nodeValue;
+
+        if(head == null){
+            createSinglyLinkedList(nodeValue);
+            return;
+        } else if (location == 0) {
+            newNode.next = head;
+            head = newNode;
+        } else if (location >= size) {
+            newNode.next = null;
+            tail.next = newNode;
+            tail = newNode;
+        }else {
+            Node tempNode = head;
+            int index = 0;
+
+            while (index < location -1){
+                tempNode = head.next;
+                index++;
+            }
+
+            Node nextNode = tempNode.next;
+            tempNode.next = newNode;
+            newNode.next = nextNode;
+
+        }
+        size++;
+    }
+
+    public void traverseSinglyLinkedList(){
+        if(head == null){
+            System.out.println("Ssl is empty not linkedlist present");
+        }else{
+            Node tempNode = head;
+            for(int i=0; i<size; i++){
+                System.out.print("->"+tempNode.value);
+                tempNode = tempNode.next;
+            }
+        }
+    }
+
 }
