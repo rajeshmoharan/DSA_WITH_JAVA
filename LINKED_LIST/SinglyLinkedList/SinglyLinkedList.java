@@ -70,4 +70,51 @@ public class SinglyLinkedList {
         }
     }
 
+    public boolean searchNode(int nodeValue){
+        if(head != null){
+            Node tempNode = head;
+            for(int i=0; i<size; i++){
+                if(tempNode.value == nodeValue){
+                    System.out.println("\nNode found in the index :"+(i+1));
+                    return true;
+                }
+                tempNode = tempNode.next;
+            }
+            System.out.println("\nNode not found!");
+        }
+        return false;
+    }
+
+    public void deleteLinkedList(){
+        head = null;
+        tail = null;
+    }
+
+    public void deleteNodeInLinkedList(int location){
+        Node tempNode = head;
+        if(head != null){
+            head = tempNode.next;
+            size--;
+            if(size == 0){
+                tail = null;
+            }
+            return;
+        } else if (location >= size) {
+            for(int i=0; i<size -1; i++){
+                tempNode = tempNode.next;
+            }
+            tempNode.next = null;
+            tail = tempNode;
+            size --;
+        }else {
+            for(int i=0; i<location -1; i++){
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+            return;
+        }
+
+    }
+
 }

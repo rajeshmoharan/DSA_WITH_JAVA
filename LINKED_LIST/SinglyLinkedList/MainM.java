@@ -11,6 +11,8 @@ public class MainM {
 
         sll.traverseSinglyLinkedList();
 
+        sll.searchNode(50);
+
 
     }
 }
