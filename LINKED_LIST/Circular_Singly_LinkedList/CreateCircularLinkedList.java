@@ -49,4 +49,86 @@ public class CreateCircularLinkedList {
         size++;
         return node;
     }
+
+    public void traverseSinglyCircularLinkedList(){
+        if(head !=null){
+            Node tempNode = head;
+            for(int i=0; i<size; i++){
+                System.out.print("->"+tempNode.value);
+                tempNode = tempNode.next;
+            }
+        }
+    }
+
+    public boolean searchingInCircularSinglyLinkedList(int nodeValue){
+        if(head != null){
+            Node tempNode = head;
+            for(int i=0; i<size; i++){
+                if(tempNode.value == nodeValue){
+                    System.out.println("Node found at index "+i);
+                    return true;
+                }
+            }
+        }
+        System.out.println("Node not found !");
+        return false;
+    }
+
+    /**
+     * delete circular singly linkedlist
+     * that delete node with 3 edge use cases
+     * here handled one is if the node
+     * 1 - node delete in the first position
+     * 2-node delete in the last position
+     * 3-node delete at any position of the linkedlist
+     * @param location
+     */
+    public void deleteCircularLinkedListNode(int location){
+        if(head == null){
+            System.out.println("Not circular linked list present !");
+        }
+        if(location == 0){
+            head = head.next;
+            tail = head;
+            size --;
+            if(size == 0){ // if singly node present then it will dob delete that node
+                head.next = null;
+                head = null;
+                tail = null;
+            }
+        }else if(location >= size){
+            Node temNode = head;
+            for(int i=0; i<size -1; i++){
+                temNode = temNode.next;
+            }
+            if(temNode == head){
+                head = null;
+                tail = null;
+                size--;
+            }
+            temNode.next = head;
+            tail = temNode;
+            size --;
+        }else {
+            Node tempNode = head;
+            for(int i=0; i<location -1; i++){
+                tempNode = tempNode.next;
+            }
+            tempNode.next = tempNode.next.next;
+            size--;
+        }
+    }
+
+    /**
+     * deleteEntire LinkedList
+     */
+    public void deleteEntireLinkedList(){
+        if(head == null){
+            System.out.println("Linked list not present");
+        }else {
+            head = null;
+            tail.next  = null;
+            tail = null;
+        }
+    }
 }

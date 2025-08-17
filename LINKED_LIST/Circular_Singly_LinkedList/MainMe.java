@@ -6,6 +6,8 @@ public class MainMe {
         CreateCircularLinkedList ccl = new CreateCircularLinkedList();
         ccl.createCSL(10);
         ccl.insertNodeOfAtAnyLocation(0,20);
-        System.out.println(ccl.head.value);
+        ccl.traverseSinglyCircularLinkedList();
     }
+
+
 }
