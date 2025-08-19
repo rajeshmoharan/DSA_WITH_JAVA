@@ -19,6 +19,33 @@ public class DllMethod {
         newNode.pre = null;
         head = newNode;
         tail = newNode;
+        size=1;
+        return newNode;
+    }
+
+    public DoublyLinkedListNode insertDll(int nodeValue,int location){
+        DoublyLinkedListNode newNode = new DoublyLinkedListNode();
+        newNode.value = nodeValue;
+        if(head != null && location == 0){
+           newNode.pre = null;
+           newNode.next = head;
+           head = newNode;
+        } else if (location < size) {
+            DoublyLinkedListNode tempNode = head;
+            for(int i=0; i<location; i++){
+                tempNode = tempNode.next;
+            }
+            newNode.next = tempNode.next;
+            newNode.pre = tempNode;
+            tempNode.next = newNode;
+            newNode.next.pre = newNode;
+        }else {
+            tail.next = newNode;
+            newNode.pre = tail;
+            newNode.next = null;
+            tail = newNode;
+        }
+        size++;
         return newNode;
     }
 
