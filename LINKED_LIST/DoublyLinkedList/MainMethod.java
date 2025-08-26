@@ -4,6 +4,7 @@ public class MainMethod {
     public static void main(String[] args) {
         DllMethod dll = new DllMethod();
         dll.createDLL(10);
-        System.out.println(dll.head.value);
+        dll.insertDll(20,1);
+        dll.traverseLinkedlist();
     }
 }
