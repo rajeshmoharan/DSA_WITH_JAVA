@@ -24,4 +24,60 @@ public class CircularDoublyLinkedList {
         size = 1;
         return newNode;
     }
+
+    /**
+     * It method will insert node at any position in the circular doubly linked list
+     * where it mange to handle 3 edge case cenario
+     * 1. insert at the beginning
+     * 2.insert in the any positon
+     * 3. insert in the last
+     * @param nodeValue
+     * @param location
+     */
+    void insertNode(int nodeValue,int location){
+        DoublyNode newNode = new DoublyNode();
+        newNode.value = nodeValue;
+
+        if(head == null){
+            createNode(nodeValue);
+            return;
+        } else if (location == 0) {
+            newNode.next = head;
+            newNode.pre = tail;
+            head.pre = newNode;
+            tail.next = newNode;
+            head = newNode;
+        } else if (location >= size) {
+            newNode.next = head;
+            newNode.pre = tail;
+            tail.next = newNode;
+            tail = newNode;
+            head.pre = newNode;
+        }else {
+            DoublyNode temNode = head;
+            int index = 0;
+            while (index < location -1){
+                temNode = temNode.next;
+                index++;
+            }
+            newNode.next = temNode.next;
+            newNode.pre = temNode;
+            temNode.next = newNode;
+            newNode.next.pre = newNode;
+        }
+        size++;
+    }
+
+    void traverseCircularLinkedList(){
+        if (head!=null){
+            DoublyNode tempNode = head;
+            for(int i=0; i<size; i++){
+                System.out.print("->"+tempNode.value);
+                tempNode = tempNode.next;
+            }
+        }else {
+            System.out.println("Circular linked list not exit!");
+        }
+    }
+
 }
