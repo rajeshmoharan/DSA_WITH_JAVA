@@ -5,6 +5,8 @@ public class DoublyCircularMain {
 
         CircularDoublyLinkedList dcll = new CircularDoublyLinkedList();
         dcll.createNode(10);
-        System.out.println(dcll.head.value);
+        dcll.insertNode(20,0);
+        dcll.traverseCircularLinkedList();
+        dcll.reverseTraversalCirclarLinkedList();
     }
 }
