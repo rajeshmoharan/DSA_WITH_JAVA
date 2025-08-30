@@ -125,4 +125,65 @@ public class CircularDoublyLinkedList {
         return false;
     }
 
+    /**
+     * here delete a linkedlist node
+     * handle with all 3 edge cases
+     * 1. if node delete with 0th index with 2 edge case handle
+     * 2. if node delete in last index with 2 edge case handle
+     * 3. if node delete in the any position edge case handle
+     * @param location
+     */
+    void deleteNodeInCircularDoublyLinkedList(int location){
+        if(head == null){
+            System.out.println("Circular Linkedlist not exit!");
+        }else {
+            if(location == 0){
+                if(size == 1){
+                    head.next = null;
+                    head.pre = null;
+                    head = tail = null;
+                    size --;
+                }else {
+                    head = head.next;
+                    head.pre = tail;
+                    tail.next = head;
+                    size--;
+                }
+            } else if (location >= size) {
+                if(size == 1){
+                    head.next = null;
+                    head.pre = null;
+                    head = tail = null;
+                    size--;
+                }else {
+                    tail = tail.pre;
+                    tail.next =  head;
+                    head.pre = tail;
+                    size--;
+                }
+            }else {
+                DoublyNode tempNode = head;
+                for(int i=0; i<location -1; i++){
+                    tempNode = tempNode.next;
+                }
+                tempNode.next = tempNode.next.next;
+                tempNode.next.pre = tempNode;
+                size--;
+            }
+        }
+    }
+
+    void deleteEntireLinkedList(){
+        if (head != null){
+            DoublyNode tempNode = head;
+            for(int i=0; i<size; i++){
+                tempNode.pre = null;
+                tempNode = tempNode.next;
+            }
+            head = null;
+            tail = null;
+            System.out.println("Doubly Circular LinkedList deleted successfully");
+        }
+    }
+
 }
