@@ -31,7 +31,7 @@ public class QueueArray {
      * @return
      */
     public boolean isEmpty(){
-        if (beginningOfQueue == -1){
+        if ((beginningOfQueue == -1) || (beginningOfQueue == arr.length -1)){
             return true;
         }else {
             return false;
@@ -60,4 +60,40 @@ public class QueueArray {
             System.out.println("Queue inserted successfully");
         }
     }
+
+
+    /**
+     * This method is responsible to delete element in the queue
+     * it will first check is queue is empty if empty then it cannot delete element
+     * if not then it will delete the element
+     * @return 
+     */
+    public int deQueue(){
+        if (isEmpty()){
+            System.out.println("The queue is empty");
+            return  -1;
+        }else {
+            int result = arr[beginningOfQueue];
+            beginningOfQueue++;
+            if (beginningOfQueue > topOfQueue){
+                beginningOfQueue = topOfQueue = -1;
+            }
+            return  result;
+        }
+    }
+
+    public int peek(){
+        if (!isEmpty()){
+            return arr[beginningOfQueue];
+        }else {
+            System.out.println("Queue is empty");
+            return  -1;
+        }
+    }
+
+    public void deleteQueue(){
+        arr = null;
+        System.out.println("Queue deleted successfully");
+    }
+
 }
