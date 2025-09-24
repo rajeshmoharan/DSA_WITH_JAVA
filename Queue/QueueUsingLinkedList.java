@@ -39,4 +39,29 @@ public class QueueUsingLinkedList {
         list.insertInSinglyLinkedList(value,list.size);
         System.out.println("Queue inserted successfully");
     }
+
+    /**
+     * it will delete the queue first element first check the empty or not in queue
+     * then delete the queue
+     * @return
+     */
+    public int deQueue(){
+        int value;
+        if (isEmpty()){
+            System.out.println("Queue is empty");
+            return -1;
+        }else {
+            value = list.head.value;
+            list.deleteNodeInLinkedList(0);
+            return value;
+        }
+    }
+
+    /**
+     * it will delete entire queue
+     */
+    public void deleteQueue(){
+        list.head = null;
+        list.tail = null;
+    }
 }
