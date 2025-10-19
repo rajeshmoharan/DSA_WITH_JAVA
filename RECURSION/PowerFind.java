@@ -7,6 +7,9 @@ public class PowerFind {
     }
 
     public static int power(int base, int exp){
+        if (base < 0 || base == 0){
+            return -1;
+        }
         if (exp == 1){
             return base;
         }
